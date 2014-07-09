@@ -75,7 +75,6 @@
       }
       return _results;
     })();
-    console.log(modifiers);
     directories = (function() {
       var _i, _len, _results;
       _results = [];
@@ -85,12 +84,10 @@
       }
       return _results;
     })();
-    console.log(directories);
     directories.unshift(currentDir);
     for (_i = 0, _len = directories.length; _i < _len; _i++) {
       directory = directories[_i];
       filepath = directory + "/.env";
-      console.log("testing " + filepath);
       if (fs.existsSync(filepath)) {
         return filepath;
       }
@@ -101,7 +98,6 @@
     var data, e, filepath;
     filepath = findEnvFile(currentDir);
     if (!filepath) {
-      console.log("not found");
       return;
     }
     console.log("loading environment variables from" + filepath);

@@ -50,7 +50,7 @@ findEnvFile = (currentDir) ->
 	directories.unshift currentDir
 	
 	for directory in directories
-		filepath = currentDir + "/.env"
+		filepath = directory + "/.env"
 		console.log "testing " + filepath
 		return filepath if fs.existsSync(filepath) 
 

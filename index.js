@@ -89,7 +89,7 @@
     directories.unshift(currentDir);
     for (_i = 0, _len = directories.length; _i < _len; _i++) {
       directory = directories[_i];
-      filepath = currentDir + "/.env";
+      filepath = directory + "/.env";
       console.log("testing " + filepath);
       if (fs.existsSync(filepath)) {
         return filepath;

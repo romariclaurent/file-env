@@ -43,15 +43,12 @@ parseEnv = (data) ->
 
 findEnvFile = (currentDir) ->
 	modifiers = (("../" for i in  [0..j]).join("") for j in [0..10])
-	console.log modifiers
-
+	
 	directories = ( currentDir + "/" + modifier for modifier in modifiers )
-	console.log directories
 	directories.unshift currentDir
 	
 	for directory in directories
 		filepath = directory + "/.env"
-		console.log "testing " + filepath
 		return filepath if fs.existsSync(filepath) 
 
 module.exports = (currentDir) ->
@@ -59,10 +56,8 @@ module.exports = (currentDir) ->
 
 	filepath = findEnvFile(currentDir)
 
-	unless filepath
-		console.log "not found"
-		return 
-
+	return unless filepath
+		
 	console.log "loading environment variables from" + filepath
 
 	try
